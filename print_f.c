@@ -5,7 +5,7 @@ int _printf(const char *format, ...)
 	int chara_print = 0;
 	va_list list_of_args;
 	
-	if(format == NULL){
+	if(format == NULL)
 		return(-1);
 		va_start(list_of_args, format);
 				
@@ -46,5 +46,5 @@ int _printf(const char *format, ...)
 	format++;
 	}
 	va_end(list_of_args);
-	return chara_print;
-	};
+	return (chara_print);
+	}
