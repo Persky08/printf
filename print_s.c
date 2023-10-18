@@ -1,4 +1,4 @@
-int printf_string(va_list val)#include "main.h"
+#include "main.h"
 
 /**
  * printf_string - print a string
@@ -18,7 +18,7 @@ int printf_string(va_list val)
 	str = "(null)";
 	length = _strlen(str);
 	for (i = 0; i < length; i++)
-		_putchar(str[i];
+	_putchar(str[i]);
 	return(length);
 	}
 	else
@@ -29,7 +29,4 @@ int printf_string(va_list val)
 	return(length);
 }
 }
-
-	
-	
 
