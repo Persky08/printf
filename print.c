@@ -36,8 +36,7 @@ int _printf(const char *format, ...)
 				case 'c':
 				{
 					char c = va_arg(args, int);
-					putchar(c);
-					
+putchar(c);
 					count++;
 					break;
 				}
@@ -85,7 +84,8 @@ int _printf(const char *format, ...)
 int main(void)
 {
 	int result = _printf("Hello, %c! This is a %s example.%%\n", 'W', "printf");
-	printf("Number of characters printed: %d\n\n", result);	
+printf("Number of characters printed: %d\n\n", result);
 
 	return (0);
 }
+
