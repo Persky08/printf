@@ -1,15 +1,3 @@
-/* main.h */
-#ifndef MAIN_H
-#define MAIN_H
-
-#include <stdio.h>
-#include <stdarg.h>
-
-int _printf(const char *format, ...);
-
-#endif /* MAIN_H */
-
-/* main.c */
 #include "main.h"
 
 /**
@@ -27,53 +15,17 @@ int _printf(const char *format, ...)
 
 	while (*format)
 	{
-		if (*format == '%')
-		{
-			format++;
-
-			switch (*format)
-			{
-				case 'c':
-				{
-					char c = va_arg(args, int);
-putchar(c);
-					count++;
-					break;
-				}
-				case 's':
-				{
-					char *str = va_arg(args, char *);
-
-					while (*str)
-					{
-						putchar(*str);
-						str++;
-						count++;
-					}
-					break;
-				}
-				case '%':
-					putchar('%');
-					count++;
-					break;
-				default:
-					putchar('%');
-					putchar(*format);
-					count += 2;
-					break;
-			}
-		}
-		else
-		{
-			putchar(*format);
-			count++;
-		}
+		*format == '%' ?
+			(format++, *format == 'c' ? (putchar(va_arg(args, int)), count++) :
+				*format == 's' ? (count += printf("%s", va_arg(args, char *))) :
+					(putchar('%'), putchar(*format), count += 2)) :
+			(putchar(*format), count++);
 
 		format++;
 	}
 
 	va_end(args);
-	return (count);
+	return count;
 }
 
 /**
@@ -84,8 +36,7 @@ putchar(c);
 int main(void)
 {
 	int result = _printf("Hello, %c! This is a %s example.%%\n", 'W', "printf");
-printf("Number of characters printed: %d\n\n", result);
+	printf("Number of characters printed: %d\n\n", result);
 
-	return (0);
+	return 0;
 }
-
