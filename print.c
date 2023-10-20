@@ -25,7 +25,7 @@ int _printf(const char *format, ...)
 	}
 
 	va_end(args);
-	return count;
+	return (count);
 }
 
 /**
@@ -36,7 +36,8 @@ int _printf(const char *format, ...)
 int main(void)
 {
 	int result = _printf("Hello, %c! This is a %s example.%%\n", 'W', "printf");
+
 	printf("Number of characters printed: %d\n\n", result);
 
-	return 0;
+	return (0);
 }
